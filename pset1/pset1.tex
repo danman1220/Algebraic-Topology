@@ -1,0 +1,164 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Short Sectioned Assignment
+% LaTeX Template
+% Version 1.0 (5/5/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Frits Wenneker (http://www.howtotex.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[paper=a4, fontsize=11pt]{scrartcl} % A4 paper and 11pt font size
+
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+\usepackage{mathrsfs}
+
+\usepackage{sectsty} % Allows customizing section commands
+\allsectionsfont{\centering \normalfont\scshape} % Make all sections centered, the default font and small caps
+
+\usepackage{fancyhdr} % Custom headers and footers
+\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+\fancyhead{} % No page header - if you want one, create it in the same way as the footers below
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[C]{} % Empty center footer
+\fancyfoot[R]{\thepage} % Page numbering for right footer
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+
+\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+
+\title{	
+\normalfont \normalsize 
+\textsc{Algebraic Topology} \\ [25pt] % Your university, school and/or department name(s)
+\horrule{0.5pt} \\[0.4cm] % Thin top horizontal rule
+\huge Problem Set 1: 0.2, 0.4, 0.10, 0.14, 0.16, 0.17 \\ % The assignment title
+\horrule{2pt} \\[0.5cm] % Thick bottom horizontal rule
+}
+
+\author{Daniel Halmrast} % Your name
+
+\date{\normalsize\today} % Today's date or a custom date
+
+\begin{document}
+
+\maketitle % Print the title
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 1
+%----------------------------------------------------------------------------------------
+
+\section*{Problem 0.2}
+Problem: Construct an explicit deformation retraction of $\mathbb{R}^n \setminus \{0\}$ i
+onto $S^{n-1}$.
+\\
+\\
+Solution: The retraction will be a linear (path-straight) retraction from $x$ to $\frac{x}{|x|}$. That is,
+\[
+F(x,t) = (1-t)x + t\left(\frac{x}{|x|}\right)
+\]
+
+
+\section*{Problem 0.4}
+Problem: A deformation retraction in the weak sense of a space $X$ to a subspace $A$ is a homotopy
+$f_t:X\to X$ such that $f_0 = \mathbb{1}$, $f_1(X) \subset A$, and $f_t(A) \subset A$ for all t.
+Show that if $X$ deformation retracts to $A$ in the weak sense, then the inclusion $A \to X$
+is a homotopy equivalence.
+\\
+\\
+Solution: Let $f_t$ be the deformation retraction from $X$ to $A$ as specified in the problem.
+Then, it is clear that the inclusion map $i_A$ is a homotopy equivalence. Since,
+$i_A \circ f_1 = f_1 \simeq f_0 = \mathbb{1}$, and
+$f_1 \circ i_A = f_1 |_A \simeq f_0|_A = \mathbb{1}$, $i_A$ is an equivalence relation.
+
+\section*{Problem 0.10}
+Problem: Show that a space $X$ is contractable iff every map $f:X\to Y$ for arbitrary $Y$ is
+nullhomotopic. Similarly, show $X$ is contractible iff every map $f:Y \to X$ is nullhomotopic.
+\\
+\\
+Solution:
+\subsection*{$X\to Y$}
+(=>) Let $X$ be a contractable space. Then, there exists a contraction $c_t$ from $X$ to $x_0$.
+Let $f:X\to Y$ be any map from $X$ to an arbitrary space $Y$. Then, consider the homotopy
+$f\circ c_t$, which is $f$ at $t=0$, and $f(x_0)$ at $t=1$. Thus, $f$ is nullhomotopic.
+\\
+(<=) Let $X$ be such a space that every map $f:X\to Y$ is nullhomotopic. Then, the identity
+map $id:X\to X$ is nullhomotopic, and $X$ is contractable.
+
+\subsection*{$Y\to X$}
+(=>) Let $X$ be a contractable space. Then, there exists a contraction $c_t$ from $X$ to $x_0$.
+Let $f:Y\to X$ be any map from an arbitrary space $Y$ to $X$. Then, consider the homotopy
+$ c_t \circ f$, which is $f$ at $t=0$, and $x_0$ at $t=1$. Thus, $f$ is nullhomotopic.
+
+(<=) Let $X$ be such a space that every map $f:Y\to X$ is nullhomotopic. Then, the identity
+map $id:X\to X$ is nullhomotopic, and $X$ is contractable.
+
+
+
+\section*{Problem 0.14}
+Problem: given positive integers $v, e, f$ such that $v - e + f = 2$, construct a cell structure on
+$S^2$ with $V$ 0-cells, $e$ 1-cells, and $f$ 2-cells.
+\\
+\\
+Solution: Let $n = v - e$, which must be at most 1. If $v-e=1$, then arrange the 0-cells in a
+line, and connect adjacent ones with 1-cells to make a line. Then, since $f = 2 - n$, attach the
+single 2-cell to the 1-cell by "wrapping" the 2-cell around the line, and gluing the boundary to it.
+
+Suppose $n < 1$. In step one, arrange the $v$ 0-cells in a line, and connect adjacent ones with 1-cells.
+This leaves $1-n$ 1-cells to attach. In step two, attach all of them in the same way: one end attaches to the
+start of the line formed in the previous step, and the other attaches to the end of the line. Then, with
+the $2-n$ 2-cells to attach, use two of them to attach to the line formed in step one along with the first
+and last (respectively) 1-cells attached in step two. Then, with the remaining $-n$ 2-cells, fill in the spaces
+between the adjacent 1-cells attached in step two.
+
+\section*{Problem 0.16}
+Problem: Show that $S^{\infty}$ is contractable.
+\\
+\\
+Solution:
+Let $S^{\infty}$ be constructed as $\bigcup_n S^n$. Then, let $x_0 \in S^0$. This proof will show that
+the n-sphere is contractable to $x_0$ when it is considered as the equator of the $n+1$-sphere.
+
+Consider $S^n$ as the equator of $S^{n+1}$, where $S^{n+1}$ is constructed by attaching two $n+1$-cells
+to $S^n$. Then, $S^n$ is identified with $\partial D^{n+1}$. Since $D^{n+1}$ is contractable, $S^n$ is contractable
+in this space as well.
+
+Since each $x\in S^{\infty}$ is a member of some $S^n$, each point is contractable to $x_0$, and thus
+$S^{\infty}$ is contractable.
+
+
+\section*{Problem 0.17}
+Problem: Show that the mapping cylinder of every map $f:S^1\to S^1$ is a CW complex, and
+construct a 2-dimensional CW complex that contains both the annulus $S^1\times I$ and a
+mobius band as deformation retracts.
+\\
+\\
+Solution: Let $f$ be a homotopy equivalence from the annulus to the mobius band.
+Then, the mapping cylinder of $f$ is a space that is deformation retractable to both the
+annulus and the mobius band. TODO: find such a homotopy equivalence.
+%----------------------------------------------------------------------------------------
+
+\end{document}
